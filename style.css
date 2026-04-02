@@ -233,27 +233,27 @@ body, a, button, .color-btn, input, .social-btn, .camera-icon, .vinyl-record, .s
 .cv-card::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 5px; }
 
 /* Progress Bars Kỹ năng */
-.progress-bar { width: 100%; height: 5px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 5px;}
+.progress-bar { width: 100%; height: 5px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 0;}
 .progress { height: 100%; background: var(--primary-color); box-shadow: 0 0 10px var(--primary-color); border-radius: 10px; transition: 1s ease-out; }
-.hobby-tag { background: rgba(0,0,0,0.4); border: 1px solid var(--primary-color); padding: 8px 15px; border-radius: 30px; font-size: 0.85rem; color: #fff; box-shadow: 0 0 5px rgba(0,0,0,0.5); font-weight: 300; transition: 0.3s; display: inline-flex; align-items: center; gap: 5px;}
+.hobby-tag { background: rgba(0,0,0,0.4); border: 1px solid var(--primary-color); padding: 5px 12px; border-radius: 30px; font-size: 0.8rem; color: #fff; box-shadow: 0 0 5px rgba(0,0,0,0.5); font-weight: 300; transition: 0.3s; display: inline-flex; align-items: center; gap: 5px;}
 .hobby-tag:hover { background: var(--primary-color); color: #000; transform: translateY(-3px);}
 
 /* Timeline Sự Nghiệp */
-.timeline { position: relative; padding-left: 25px; text-align: left; margin: 15px 0;}
+.timeline { position: relative; padding-left: 20px; text-align: left; margin: 10px 0;}
 .timeline::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 2px; background: var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }
-.timeline-item { position: relative; margin-bottom: 15px; background: rgba(0,0,0,0.3); padding: 15px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;}
+.timeline-item { position: relative; margin-bottom: 10px; background: rgba(0,0,0,0.3); padding: 12px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;}
 .timeline-item:hover { border-color: var(--primary-color); box-shadow: 0 5px 15px rgba(0,0,0,0.3); transform: translateX(5px);}
 .timeline-item:last-child { margin-bottom: 0; }
-.tl-dot { position: absolute; left: -31px; top: 15px; width: 14px; height: 14px; border-radius: 50%; background: #111; border: 3px solid var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }
+.tl-dot { position: absolute; left: -26px; top: 15px; width: 12px; height: 12px; border-radius: 50%; background: #111; border: 3px solid var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }
 .tl-date { font-size: 0.75rem; color: var(--secondary-color); font-weight: bold; font-family: monospace; letter-spacing: 1px; }
-.timeline-item h3 { font-size: 1.05rem; color: var(--primary-color); margin: 5px 0; font-family: Outfit; }
-.tl-company { font-size: 0.85rem; color: #ccc; margin-bottom: 8px; font-weight: 300; }
-.timeline-item p { font-size: 0.8rem; color: #aaa; line-height: 1.5; margin:0;}
+.timeline-item h3 { font-size: 1rem; color: var(--primary-color); margin: 3px 0; font-family: Outfit; }
+.tl-company { font-size: 0.8rem; color: #ccc; margin-bottom: 5px; font-weight: 300; }
+.timeline-item p { font-size: 0.8rem; color: #aaa; line-height: 1.4; margin:0;}
 
 /* Thẻ Chứng chỉ / Hoạt động */
-.cert-card { background: rgba(255,255,255,0.05); border-left: 3px solid var(--secondary-color); padding: 10px 15px; margin-bottom: 8px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; text-align: left; transition: 0.3s;}
+.cert-card { background: rgba(255,255,255,0.05); border-left: 3px solid var(--secondary-color); padding: 8px 12px; margin-bottom: 6px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; text-align: left; transition: 0.3s;}
 .cert-card:hover { background: rgba(255,255,255,0.1); transform: translateX(3px);}
-.cert-card span { font-weight: bold; font-family: Outfit; color: #fff; font-size: 0.9rem; }
+.cert-card span { font-weight: bold; font-family: Outfit; color: #fff; font-size: 0.85rem; }
 .cert-card small { color: var(--primary-color); font-size: 0.8rem; font-family: monospace; }
 .cert-card.award { border-left-color: #ffbd2e; }
 
