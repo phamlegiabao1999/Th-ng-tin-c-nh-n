@@ -201,6 +201,14 @@ if(typedTextElement) {
     setTimeout(typeEffect, 3500);
 }
 
+const typingBoxPanel = document.getElementById('typingBox');
+const closeTypingIcon = document.getElementById('closeTypingIcon');
+const closeTypingBtn = document.getElementById('closeTypingBtn');
+if(typingBoxPanel && closeTypingIcon && closeTypingBtn) {
+    closeTypingIcon.addEventListener('click', () => typingBoxPanel.style.display = 'none');
+    closeTypingBtn.addEventListener('click', () => typingBoxPanel.style.display = 'none');
+}
+
 // ==================================
 // 7. HỆ THỐNG CỬA SỔ LẤY DATA (FORMSUBMIT)
 // ==================================

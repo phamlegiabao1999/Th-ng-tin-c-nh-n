@@ -231,8 +231,8 @@ body, a, button, .color-btn, input, .social-btn, .camera-icon, .vinyl-record, .s
 
 /* Hộp máy đánh chữ bên trái */
 .typing-box {
-    position: fixed; bottom: 30px; left: 30px; z-index: 90;
-    width: 320px; background: rgba(0,0,0,0.6);
+    position: fixed; bottom: 20px; left: 20px; z-index: 90;
+    width: 250px; background: rgba(0,0,0,0.6);
     border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     display: flex; flex-direction: column; overflow: hidden;
@@ -248,9 +248,9 @@ body, a, button, .color-btn, input, .social-btn, .camera-icon, .vinyl-record, .s
 }
 .dot { width: 10px; height: 10px; border-radius: 50%; }
 .dot.red { background: #ff5f56; } .dot.yellow { background: #ffbd2e; } .dot.green { background: #27c93f; }
-.typing-header span { margin-left: 10px; font-weight: 300;}
+.typing-header span { margin-left: 6px; font-weight: 300;}
 
-.typing-content { padding: 15px; font-size: 0.95rem; line-height: 1.5; color: #e1e1e1; font-family: monospace; }
+.typing-content { padding: 12px; font-size: 0.82rem; line-height: 1.4; color: #e1e1e1; font-family: monospace; }
 .typing-content .cursor { font-weight: bold; animation: blink 1s infinite; color: var(--primary-color);}
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
@@ -287,8 +287,8 @@ body, a, button, .color-btn, input, .social-btn, .camera-icon, .vinyl-record, .s
 .contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary-color); box-shadow: inset 0 0 5px rgba(255,255,255,0.1);}
 
 /* Tối ưu UX trên điện thoại */
-@media screen and (max-width: 800px) {
-    .typing-box { display: none; } /* Giấu box trái trên đt để dễ nhìn Slider */
+@media screen and (max-width: 1024px) {
+    .typing-box { display: none; } /* Giấu box trái trên màn nhỏ để tránh che mất nội dung CV */
     .contact-widget { bottom: 20px; right: 20px; }
     .chat-box { width: 280px; }
 }

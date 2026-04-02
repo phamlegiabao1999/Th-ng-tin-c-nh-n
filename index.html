@@ -207,12 +207,15 @@
     </div>
 
     <!-- TIỆN ÍCH 1: Hộp thoại Đánh Máy (Góc trái) -->
-    <div class="typing-box">
-        <div class="typing-header">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
-            <span>Auto Message</span>
+    <div class="typing-box" id="typingBox">
+        <div class="typing-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 6px;">
+                <div class="dot red" id="closeTypingBtn" style="cursor: pointer;" title="Đóng"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+                <span>Auto Message</span>
+            </div>
+            <i class='bx bx-x' id="closeTypingIcon" style="cursor: pointer; font-size: 1.2rem;"></i>
         </div>
         <div class="typing-content">
             <span id="typedText"></span><span class="cursor">|</span>
