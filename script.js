@@ -13,6 +13,27 @@ const swiper = new Swiper(".mySwiper", {
     },
 });
 
+// THUẬT TOÁN ĐIỀU KHIỂN CUỘN THÔNG MINH CHO CÁC THẺ KÍNH
+// Cho phép lăn bi chuột trong mượt mà, khi kịch bóng mới đá lệnh cho Swiper chuyển Slide
+const cvCards = document.querySelectorAll('.cv-card');
+cvCards.forEach(card => {
+    card.addEventListener('wheel', (e) => {
+        const isScrollingUp = e.deltaY < 0;
+        const isScrollingDown = e.deltaY > 0;
+        
+        // Tính toán khoảng cách (Hạn chế xê dịch sub-pixel)
+        const isAtTop = card.scrollTop <= 0;
+        const isAtBottom = card.scrollHeight - card.scrollTop <= card.clientHeight + 1;
+
+        // Nếu nội dung có thanh cuộn và chưa cuộn hết thì NGĂN Swiper bắt sự kiện wheel
+        if (card.scrollHeight > card.clientHeight) {
+            if ((isScrollingUp && !isAtTop) || (isScrollingDown && !isAtBottom)) {
+                e.stopPropagation();
+            }
+        }
+    });
+});
+
 // ==================================
 // 1. TÍNH NĂNG COLOR THEME PICKER 
 // ==================================
