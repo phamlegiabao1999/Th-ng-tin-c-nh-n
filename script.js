@@ -3,7 +3,9 @@ const swiper = new Swiper(".mySwiper", {
     direction: "vertical",
     slidesPerView: 1,
     spaceBetween: 0,
-    mousewheel: true, // Xoay chuột là đổi slide
+    mousewheel: {
+        releaseOnEdges: true, // Nhả chuột tự động sang slide tiếp theo khi cuộn hết nội dung
+    },
     speed: 800, // Tốc độ mượt mà
     pagination: {
         el: ".swiper-pagination",
