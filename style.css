@@ -224,3 +224,71 @@ body, a, button, .color-btn, input, .social-btn, .camera-icon, .vinyl-record, .s
 .projectSwiper .swiper-button-next, .projectSwiper .swiper-button-prev { color: var(--primary-color); transform: scale(0.6); top: auto; bottom: 0; }
 .projectSwiper .swiper-button-prev { left: 40%;}
 .projectSwiper .swiper-button-next { right: 40%;}
+
+/* =========================================
+   THU THẬP KHÁCH HÀNG: TYPING BOX & FORM GỬI MAIL
+========================================= */
+
+/* Hộp máy đánh chữ bên trái */
+.typing-box {
+    position: fixed; bottom: 30px; left: 30px; z-index: 90;
+    width: 320px; background: rgba(0,0,0,0.6);
+    border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex; flex-direction: column; overflow: hidden;
+    transform: translateY(20px); opacity: 0; animation: slideUpFade 1s forwards 2s; /* Nổi lên sau 2s */
+}
+@keyframes slideUpFade {
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.typing-header {
+    background: rgba(255,255,255,0.1); padding: 8px 15px; display: flex; align-items: center; gap: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: #aaa;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.red { background: #ff5f56; } .dot.yellow { background: #ffbd2e; } .dot.green { background: #27c93f; }
+.typing-header span { margin-left: 10px; font-weight: 300;}
+
+.typing-content { padding: 15px; font-size: 0.95rem; line-height: 1.5; color: #e1e1e1; font-family: monospace; }
+.typing-content .cursor { font-weight: bold; animation: blink 1s infinite; color: var(--primary-color);}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* Bong bóng gửi thư bên phải */
+.contact-widget {
+    position: fixed; bottom: 30px; right: 30px; z-index: 100;
+}
+.chat-btn {
+    width: 60px; height: 60px; border-radius: 50%; background: var(--primary-color);
+    border: none; color: #fff; font-size: 2rem; cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center;
+    transition: 0.3s; animation: bounceChat 2s infinite ease-in-out;
+}
+.chat-btn:hover { transform: scale(1.1); box-shadow: 0 5px 25px var(--primary-color);}
+@keyframes bounceChat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* Hòm kính điền form */
+.chat-box {
+    position: absolute; bottom: 80px; right: 0; width: 320px;
+    padding: 20px; display: flex; flex-direction: column; gap: 15px; background: rgba(0,0,0,0.6);
+    transform-origin: bottom right; transform: scale(0); opacity: 0; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    visibility: hidden; font-family: 'Inter'; text-align: left;
+    backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px;
+}
+.chat-box.show { transform: scale(1); opacity: 1; visibility: visible; }
+.chat-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+.chat-header i:hover { color: #ff5f56 !important; transform: rotate(90deg); }
+
+.contact-form { display: flex; flex-direction: column; gap: 12px; }
+.contact-form input, .contact-form textarea {
+    width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px; color: #fff; font-size: 0.9rem; outline: none; transition: 0.3s; font-family: 'Inter';
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary-color); box-shadow: inset 0 0 5px rgba(255,255,255,0.1);}
+
+/* Tối ưu UX trên điện thoại */
+@media screen and (max-width: 800px) {
+    .typing-box { display: none; } /* Giấu box trái trên đt để dễ nhìn Slider */
+    .contact-widget { bottom: 20px; right: 20px; }
+    .chat-box { width: 280px; }
+}

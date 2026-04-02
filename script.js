@@ -176,3 +176,52 @@ musicPlayer.addEventListener('click', () => {
         musicPlayer.classList.remove('playing');
     }
 });
+
+// ==================================
+// 6. HIỆU ỨNG GÕ CHỮ (TYPING EFFECT)
+// ==================================
+const textArray = "Xin chào! Rất trùng hợp và may mắn khi chúng ta có duyên kết nối qua không gian này. Trong thế giới B2B, mọi cơ hội lớn đều bắt đầu từ một cuộc trò chuyện nhỏ. Nếu bạn đang tìm kiếm chiến lược mở rộng kênh phân phối, hay muốn chia sẻ ý tưởng kinh doanh, hãy để lại lời nhắn cho tôi ở hộp thư góc phải nhé. Tôi luôn sẵn sàng lắng nghe và kết nối!".split('');
+const typedTextElement = document.getElementById('typedText');
+
+if(typedTextElement) {
+    let charIndex = 0;
+    function typeEffect() {
+        if (charIndex < textArray.length) {
+            typedTextElement.textContent += textArray[charIndex];
+            charIndex++;
+            // Tốc độ gõ ngẫu nhiên 
+            let typingSpeed = Math.floor(Math.random() * (50 - 20 + 1)) + 20; 
+            if (textArray[charIndex - 1] === '.' || textArray[charIndex - 1] === ',') {
+                typingSpeed += 400; // Nghỉ lấy hơi ở dấu chấm
+            }
+            setTimeout(typeEffect, typingSpeed);
+        }
+    }
+    // Gõ sau 3.5 giây 
+    setTimeout(typeEffect, 3500);
+}
+
+// ==================================
+// 7. HỆ THỐNG CỬA SỔ LẤY DATA (FORMSUBMIT)
+// ==================================
+const chatToggleBtn = document.getElementById('chatToggle');
+const closeChatBtn = document.getElementById('closeChat');
+const chatBox = document.getElementById('chatBox');
+
+if(chatToggleBtn && chatBox) {
+    chatToggleBtn.addEventListener('click', () => {
+        chatBox.classList.add('show');
+        chatToggleBtn.style.display = 'none'; // Giấu cục tròn đi
+        
+        // Truyền URL của trang hiện tại để FormSubmit chuyển về đỡ bị lạc
+        const formInputNext = document.querySelector('input[name="_next"]');
+        if(formInputNext) {
+            formInputNext.value = window.location.href;
+        }
+    });
+
+    closeChatBtn.addEventListener('click', () => {
+        chatBox.classList.remove('show');
+        setTimeout(() => { chatToggleBtn.style.display = 'flex'; }, 300);
+    });
+}

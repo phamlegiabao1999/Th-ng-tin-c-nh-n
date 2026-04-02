@@ -206,6 +206,48 @@
         <div class="swiper-pagination"></div>
     </div>
 
+    <!-- TIỆN ÍCH 1: Hộp thoại Đánh Máy (Góc trái) -->
+    <div class="typing-box">
+        <div class="typing-header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+            <span>Auto Message</span>
+        </div>
+        <div class="typing-content">
+            <span id="typedText"></span><span class="cursor">|</span>
+        </div>
+    </div>
+
+    <!-- TIỆN ÍCH 2: Nút Liên Hệ & Cửa số nhắn tin (Góc phải) -->
+    <div class="contact-widget">
+        <!-- Nút Tròn -->
+        <button id="chatToggle" class="chat-btn" title="Gửi Lời Nhắn">
+            <i class='bx bx-message-square-dots'></i>
+        </button>
+        
+        <!-- Khung Form Liên Hệ -->
+        <div id="chatBox" class="chat-box glass-card">
+            <div class="chat-header">
+                <h3 style="color: var(--primary-color); font-family: Outfit; font-size: 1.1rem; flex-grow: 1;">Để lại lời nhắn 💬</h3>
+                <i class='bx bx-x' id="closeChat" style="font-size: 1.5rem; cursor: pointer; color: #fff;"></i>
+            </div>
+            <!-- Core xử lý FormSubmit -->
+            <form action="https://formsubmit.co/phamlegiabao1999@gmail.com" method="POST" class="contact-form">
+                <!-- Tham số phụ -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="🔔 Khách hàng từ Portfolio!">
+                <input type="hidden" name="_next" value="">
+                
+                <input type="text" name="name" placeholder="Tên / Quý Công Ty" required>
+                <input type="text" name="phone" placeholder="SĐT Zalo liên lạc" required>
+                <textarea name="message" rows="4" placeholder="Bạn cần tôi hỗ trợ phần nào?" required></textarea>
+                
+                <button type="submit" class="p-btn send-btn" style="width: 100%; border:none; margin-top:5px; font-weight:600;"><i class='bx bxs-paper-plane'></i> Gửi đi</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Thư viện Swiper và Particles JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
