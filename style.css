@@ -156,3 +156,71 @@ h2 i { color: var(--primary-color); margin-right: 10px; transition: color 0.5s;}
 /* Tùy chỉnh màu phân trang Swiper */
 .swiper-pagination-bullet { background: rgba(255,255,255,0.5); }
 .swiper-pagination-bullet-active { background: var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }
+
+/* =========================================
+   NÂNG CẤP PRO LEVEL: CUSTOM CURSOR
+========================================= */
+body, a, button, .color-btn, input, .social-btn, .camera-icon, .vinyl-record, .swiper-button-next, .swiper-button-prev {
+    cursor: none !important; /* Xóa mọi dấu vân chuột trên web */
+}
+
+.cursor-dot {
+    width: 6px; height: 6px; background: var(--primary-color);
+    position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%); box-shadow: 0 0 10px var(--primary-color);
+}
+.cursor-outline {
+    width: 35px; height: 35px; border: 2px solid var(--secondary-color);
+    position: fixed; border-radius: 50%; pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, background 0.3s;
+}
+
+/* =========================================
+   NÂNG CẤP PRO LEVEL: VINYL MUSIC PLAYER
+========================================= */
+.music-player {
+    position: fixed; top: 25px; left: 25px; z-index: 100;
+}
+.vinyl-record {
+    width: 50px; height: 50px; background: #111; border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.2); display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5); position: relative;
+    transition: transform 0.3s, border-color 0.5s;
+}
+.vinyl-record::after {
+    content: ''; position: absolute; width: 15px; height: 15px;
+    background: var(--primary-color); border-radius: 50%; box-shadow: 0 0 10px var(--primary-color);
+}
+.vinyl-record i { font-size: 1.2rem; position: absolute; left: 60px; color: var(--text-dim); transition: 0.3s; white-space: nowrap;}
+.music-player.playing .vinyl-record {
+    animation: spin 3s linear infinite;
+    border-color: var(--primary-color); box-shadow: 0 0 25px var(--primary-color);
+}
+.music-player.playing .vinyl-record i { color: var(--primary-color); text-shadow: 0 0 5px var(--primary-color);}
+.music-player:hover .vinyl-record { transform: scale(1.1); }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* =========================================
+   NÂNG CẤP PRO LEVEL: KHỐI DỰ ÁN
+========================================= */
+.projects-card { padding: 40px 30px; }
+.projectSwiper { padding-bottom: 45px; margin-top: 15px; }
+.project-card { 
+    background: rgba(0,0,0,0.5); border-radius: 12px; overflow: hidden; 
+    border: 1px solid rgba(255,255,255,0.1); transition: 0.4s;
+    height: 100%; display: flex; flex-direction: column; text-align: left;
+}
+.project-card:hover { transform: translateY(-10px); border-color: var(--primary-color); box-shadow: 0 10px 20px rgba(0,0,0,0.5) }
+.project-card img { width: 100%; height: 160px; object-fit: cover; border-bottom: 2px solid var(--primary-color); }
+.p-info { padding: 18px; display: flex; flex-direction: column; flex-grow: 1; }
+.p-info h3 { font-family: 'Outfit'; color: var(--text-main); font-size: 1.2rem; }
+.p-info p { color: #ccc; font-size: 0.9rem; margin-top: 8px; flex-grow: 1; line-height: 1.4; font-weight: 300;}
+.p-btn { 
+    margin-top: 15px; display: inline-flex; justify-content: center; align-items: center; gap: 5px; padding: 8px 15px; 
+    background: rgba(255,255,255,0.05); color: #fff; text-decoration: none; 
+    border-radius: 8px; border: 1px solid var(--primary-color); transition: 0.3s; font-size: 0.9rem;
+}
+.p-btn:hover { background: var(--primary-color); box-shadow: 0 0 15px var(--primary-color); color: #fff; transform: translateY(-2px);}
+.projectSwiper .swiper-button-next, .projectSwiper .swiper-button-prev { color: var(--primary-color); transform: scale(0.6); top: auto; bottom: 0; }
+.projectSwiper .swiper-button-prev { left: 40%;}
+.projectSwiper .swiper-button-next { right: 40%;}

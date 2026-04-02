@@ -13,11 +13,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Nền tảng Background Gradient -->
+    <!-- Ma trận Hạt 3D -->
+    <div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: -1;"></div>
+
+    <!-- Background Gradient Xoay -->
     <div class="bg-animation">
         <div class="shape shape1"></div>
         <div class="shape shape2"></div>
         <div class="shape shape3"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Music Player Lofi -->
+    <div class="music-player" id="musicPlayer" title="Phát/Tạm Dừng Lofi Nhạc">
+        <div class="vinyl-record">
+            <i class='bx bx-music' ></i>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+        </audio>
     </div>
 
     <!-- Nút đổi màu (Theme Picker) -->
@@ -29,25 +46,28 @@
         <div class="color-btn" style="--btn-color: #00b894;" data-color="green" title="Matrix Green"></div>
     </div>
 
-    <!-- Input file ẩn để cho tính năng uploader FB-style -->
     <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
 
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <!-- Slide 1: Chào sân -->
+            <!-- Slide 1: Lời Mở Đầu -->
             <div class="swiper-slide">
                 <div class="glass-card">
                     <div class="avatar-container">
-                        <!-- Tích hợp logic nút ấn thay đổi ngay -->
                         <img src="avatar.png" alt="Avatar" id="profileImage">
                         <div class="camera-icon" id="openUpload" title="Thay đổi avatar như FB">
                             <i class='bx bxs-camera'></i>
                         </div>
                     </div>
                     <h1 class="title">Xin chào, tôi là <span class="highlight typed-text">Bảo!</span></h1>
-                    <p class="subtitle">Chuyên Viên Kinh Doanh | Modern Trade </p>
+                    <p class="subtitle">Sales Modern Trade | Chuyên viên Kinh doanh Kênh Hiện Đại</p>
+                    
+                    <div class="sales-quote" style="font-size: 1rem; font-style: italic; color: #e1e1e1; padding: 15px 25px; background: rgba(255,255,255,0.08); border-radius: 12px; border-left: 3px solid var(--primary-color); border-right: 3px solid var(--primary-color); margin: 0 auto 25px; max-width: 90%; line-height: 1.5; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        <i class='bx bxs-quote-alt-left' style="color: var(--primary-color);"></i> Trong B2B, bạn không bán hàng. Bạn xây dựng những giải pháp sinh lời cùng đối tác. <i class='bx bxs-quote-alt-right' style="color: var(--primary-color);"></i>
+                    </div>
+
                     <div class="swipe-hint">
-                        Vuốt / Lăn chuột xuống dưới <br>
+                        Cuộn rãnh chuột hoặc lướt xuống để xem <br>
                         <i class='bx bx-chevrons-down bx-fade-down' ></i>
                     </div>
                 </div>
@@ -57,8 +77,7 @@
             <div class="swiper-slide">
                 <div class="glass-card about-card">
                     <h2><i class='bx bx-user'></i> Về Bản Thân</h2>
-                    <p class="bioText">Là một chuyên viên kinh doanh trong ngành FMCG với châm ngôn "Always strive to be better every day". 
-                        Tôi thích ứng dụng công nghệ để giải quyết các bài toán trong đời sống thực tế và tận hưởng những dòng code mỗi ngày.</p>
+                    <p class="bioText">Là một chuyên viên Sales MT năng động và luôn theo sát nhịp đập của thị trường bán lẻ. Tôi đam mê xây dựng mạng lưới đối tác, mở rộng kênh phân phối siêu thị và mang lại giải pháp tăng trưởng doanh số đột phá cho doanh nghiệp.</p>
                     <div class="info-grid">
                         <div class="info-item">
                             <i class='bx bxs-cake' ></i>
@@ -70,40 +89,86 @@
                         </div>
                         <div class="info-item">
                             <i class='bx bx-briefcase' ></i>
-                            <span>Sales Executive - Modern Trade</span>
+                            <span>Sales MT</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 3: Kỹ năng & Sở thích -->
+            <!-- Slide 3: KHO DỰ ÁN NỔI BẬT (Horizontal Swiper) -->
+            <div class="swiper-slide">
+                <div class="glass-card projects-card">
+                    <h2><i class='bx bx-rocket'></i> Thành Tích & Dự Án</h2>
+                    <div class="swiper projectSwiper">
+                        <div class="swiper-wrapper">
+                            <!-- Dự án 1 -->
+                            <div class="swiper-slide p-slide">
+                                <div class="project-card">
+                                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=300&q=80" alt="Store">
+                                    <div class="p-info">
+                                        <h3>Phủ Sóng Chuỗi Siêu Thị</h3>
+                                        <p>Đàm phán thành công hợp đồng đưa sản phẩm vào hệ thống siêu thị lớn như Winmart, Co.opmart.</p>
+                                        <a href="#" class="p-btn"><i class='bx bx-link-external'></i> Xem Chi Tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Dự án 2 -->
+                            <div class="swiper-slide p-slide">
+                                <div class="project-card">
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=300&q=80" alt="Campaign">
+                                    <div class="p-info">
+                                        <h3>Trade Marketing Đỉnh Cao</h3>
+                                        <p>Triển khai chiến dịch kệ hàng trưng bày giúp nhãn hàng tăng trưởng tốt độ nhận diện.</p>
+                                        <a href="#" class="p-btn"><i class='bx bx-link-external'></i> Xem Chi Tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Dự án 3 -->
+                            <div class="swiper-slide p-slide">
+                                <div class="project-card">
+                                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&w=300&q=80" alt="Meeting">
+                                    <div class="p-info">
+                                        <h3>Quản Lý Key Account</h3>
+                                        <p>Chăm sóc, giữ vững và tối ưu hóa doanh thu từ các đối tác Key Account chiến lược toàn quốc.</p>
+                                        <a href="#" class="p-btn"><i class='bx bx-link-external'></i> Xem Chi Tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Kỹ năng & Sở thích -->
             <div class="swiper-slide">
                 <div class="glass-card skills-card">
-                    <h2><i class='bx bx-code-alt'></i> Sở thích & Đam mê</h2>
+                    <h2><i class='bx bx-street-view'></i> Sở thích & Đam mê</h2>
                     <div class="hobby-tags">
                         <span class="h-tag"><i class='bx bxs-music'></i> Nghe nhạc</span>
-                        <span class="h-tag"><i class='bx bxs-game'></i> Chơi game</span>
-                        <span class="h-tag"><i class='bx bx-laptop'></i> Lập trình</span>
-                        <span class="h-tag"><i class='bx bx-book-reader'></i> Học hỏi</span>
+                        <span class="h-tag"><i class='bx bx-car'></i> Lái xe & Du lịch</span>
+                        <span class="h-tag"><i class='bx bx-coffee'></i> Giao tiếp Xã hội</span>
+                        <span class="h-tag"><i class='bx bx-book-reader'></i> Sách Kinh Tế</span>
                     </div>
                     
-                    <h2 class="mt-20"><i class='bx bx-line-chart'></i> Kỹ năng Nổi Bật</h2>
+                    <h2 class="mt-20"><i class='bx bx-line-chart'></i> Kỹ năng Cốt Lõi</h2>
                     <div class="skill-bar">
-                        <div class="skill-name">Ngoại Ngữ - Tiếng Anh</div>
-                        <div class="bar-bg"><div class="bar-fill" style="width: 75%;"></div></div>
+                        <div class="skill-name">Đàm phán & Chốt Sales B2B</div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 95%;"></div></div>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-name">Lập Kế Hoạch</div>
-                        <div class="bar-bg"><div class="bar-fill" style="width: 75%;"></div></div>
+                        <div class="skill-name">Phân tích Số liệu Ngành Hàng</div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-name">Kiên nhẫn (Rất quan trọng!)</div>
+                        <div class="skill-name">Xây dựng quan hệ Đối tác (Networking)</div>
                         <div class="bar-bg"><div class="bar-fill" style="width: 100%;"></div></div>
                     </div>
                 </div>
             </div>
             
-            <!-- Slide 4: Contact -->
+            <!-- Slide 5: Contact -->
              <div class="swiper-slide">
                 <div class="glass-card contact-card">
                     <h2>Kết Nối Nhé!</h2>
@@ -123,8 +188,9 @@
         <div class="swiper-pagination"></div>
     </div>
 
-    <!-- Thư viện Swiper JS -->
+    <!-- Thư viện Swiper và Particles JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
