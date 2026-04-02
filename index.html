@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin cá nhân - Bảo</title>
+    <!-- Thư viện Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Nền tảng Background Gradient -->
+    <div class="bg-animation">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+    <!-- Nút đổi màu (Theme Picker) -->
+    <div class="theme-picker">
+        <div class="color-btn" style="--btn-color: #6c5ce7;" data-color="purple" title="Neon Purple"></div>
+        <div class="color-btn" style="--btn-color: #00cec9;" data-color="teal" title="Cyber Teal"></div>
+        <div class="color-btn" style="--btn-color: #ff7675;" data-color="pink" title="Hot Pink"></div>
+        <div class="color-btn" style="--btn-color: #fdcb6e;" data-color="yellow" title="Electric Yellow"></div>
+        <div class="color-btn" style="--btn-color: #00b894;" data-color="green" title="Matrix Green"></div>
+    </div>
+
+    <!-- Input file ẩn để cho tính năng uploader FB-style -->
+    <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <!-- Slide 1: Chào sân -->
+            <div class="swiper-slide">
+                <div class="glass-card">
+                    <div class="avatar-container">
+                        <!-- Tích hợp logic nút ấn thay đổi ngay -->
+                        <img src="avatar.png" alt="Avatar" id="profileImage">
+                        <div class="camera-icon" id="openUpload" title="Thay đổi avatar như FB">
+                            <i class='bx bxs-camera'></i>
+                        </div>
+                    </div>
+                    <h1 class="title">Xin chào, tôi là <span class="highlight typed-text">Bảo!</span></h1>
+                    <p class="subtitle">Chuyên Viên Kinh Doanh | Modern Trade </p>
+                    <div class="swipe-hint">
+                        Vuốt / Lăn chuột xuống dưới <br>
+                        <i class='bx bx-chevrons-down bx-fade-down' ></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Về Tôi -->
+            <div class="swiper-slide">
+                <div class="glass-card about-card">
+                    <h2><i class='bx bx-user'></i> Về Bản Thân</h2>
+                    <p class="bioText">Là một chuyên viên kinh doanh trong ngành FMCG với châm ngôn "Always strive to be better every day". 
+                        Tôi thích ứng dụng công nghệ để giải quyết các bài toán trong đời sống thực tế và tận hưởng những dòng code mỗi ngày.</p>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class='bx bxs-cake' ></i>
+                            <span>27 Tuổi</span>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-map' ></i>
+                            <span>Việt Nam</span>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-briefcase' ></i>
+                            <span>Sales Executive - Modern Trade</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Kỹ năng & Sở thích -->
+            <div class="swiper-slide">
+                <div class="glass-card skills-card">
+                    <h2><i class='bx bx-code-alt'></i> Sở thích & Đam mê</h2>
+                    <div class="hobby-tags">
+                        <span class="h-tag"><i class='bx bxs-music'></i> Nghe nhạc</span>
+                        <span class="h-tag"><i class='bx bxs-game'></i> Chơi game</span>
+                        <span class="h-tag"><i class='bx bx-laptop'></i> Lập trình</span>
+                        <span class="h-tag"><i class='bx bx-book-reader'></i> Học hỏi</span>
+                    </div>
+                    
+                    <h2 class="mt-20"><i class='bx bx-line-chart'></i> Kỹ năng Nổi Bật</h2>
+                    <div class="skill-bar">
+                        <div class="skill-name">Ngoại Ngữ - Tiếng Anh</div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 75%;"></div></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">Lập Kế Hoạch</div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 75%;"></div></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">Kiên nhẫn (Rất quan trọng!)</div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 100%;"></div></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 4: Contact -->
+             <div class="swiper-slide">
+                <div class="glass-card contact-card">
+                    <h2>Kết Nối Nhé!</h2>
+                    <p>Cảm ơn bạn đã ghé thăm mini-portfolio của tôi. Rất vui được trò chuyện!</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/18P8dRs3Lr/?mibextid=wwXIfr" target="_blank" class="social-btn"><i class='bx bxl-facebook'></i></a>
+                        <a href="https://github.com/phamlegiabao1999" target="_blank" class="social-btn"><i class='bx bxl-github' ></i></a>
+                        <a href="https://linkbio.co/7032304mtmFIP" target="_blank" class="social-btn"><i class='bx bx-link' ></i></a>
+                        <a href="https://zalo.me/0962918173" target="_blank" class="social-btn" title="Zalo"><i class='bx bx-message-rounded-dots' ></i></a>
+                    </div>
+                    <h3 class="highlight mt-20">Thanks for watching! ✨</h3>
+                </div>
+            </div>
+
+        </div>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Thư viện Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
