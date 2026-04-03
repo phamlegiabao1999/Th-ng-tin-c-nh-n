@@ -189,11 +189,48 @@ const projectSwiper = new Swiper(".projectSwiper", {
 const musicPlayer = document.getElementById('musicPlayer');
 const bgMusic = document.getElementById('bgMusic');
 
-musicPlayer.addEventListener('click', () => {
+function playMusic() {
+    bgMusic.volume = 0.5; // Đặt loa vừa phải
+    const playPromise = bgMusic.play();
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            musicPlayer.classList.add('playing');
+        }).catch(error => {
+            console.log("Trình duyệt chặn Autoplay. Đang chờ người dùng tương tác...");
+        });
+    }
+}
+
+// 1. Thử ép phát nhạc ngay lúc vừa tải web
+window.addEventListener('load', () => {
+    playMusic();
+});
+
+// 2. Chống cháy: Nếu trình duyệt (Chrome/Safari) tàn nhẫn chặn lệnh trên vì lý do bảo mật, 
+// ta sẽ lén lút bắt sự kiện người dùng Click, Cuộn chuột, hoặc Chạm tay đầu tiên lên Web để phát nhạc!
+function firstInteractionPlay() {
     if(bgMusic.paused) {
-        bgMusic.play();
-        musicPlayer.classList.add('playing');
-        bgMusic.volume = 0.5; // Đặt loa vừa phải
+        playMusic();
+    }
+    // Gỡ sự kiện gián điệp này sau khi nhạc đã kêu để tối ưu Ram
+    document.removeEventListener('click', firstInteractionPlay);
+    document.removeEventListener('wheel', firstInteractionPlay);
+    document.removeEventListener('touchstart', firstInteractionPlay);
+    document.removeEventListener('mousemove', firstInteractionPlay);
+    document.removeEventListener('keydown', firstInteractionPlay);
+}
+
+document.addEventListener('click', firstInteractionPlay);
+document.addEventListener('wheel', firstInteractionPlay);
+document.addEventListener('touchstart', firstInteractionPlay);
+document.addEventListener('mousemove', firstInteractionPlay);
+document.addEventListener('keydown', firstInteractionPlay);
+
+// Nút Đĩa than: Quyền sinh sát - Tắt mở nhạc theo ý muốn
+musicPlayer.addEventListener('click', (e) => {
+    e.stopPropagation(); // Tránh bị dính chùm với lệnh Click tàng hình ở trên
+    if(bgMusic.paused) {
+        playMusic();
     } else {
         bgMusic.pause();
         musicPlayer.classList.remove('playing');
